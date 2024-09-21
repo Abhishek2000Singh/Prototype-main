@@ -1,0 +1,919 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body.bgimg {
+  background-color: plum;
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh; /* Full height of viewport */
+  width: 100vw;  /* Full width of viewport */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background:  #ffd43b;
+
+
+}
+
+nav {
+  flex: 1;
+  text-align: right;
+}
+
+nav ul {
+  display: inline-block;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #0e0a0a;
+  transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: rgba(146, 102, 102, 0.2);
+  border-radius: 5px;
+} 
+
+
+/* Hero Section */
+/* video slider */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+/* Slider Container */
+.hero-slider {
+  position: relative;
+  width: 300%; /* Enough width to hold 3 slides */
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden; /* Hide overflow for smooth sliding */
+}
+
+/* Slide */
+.slide {
+  width: 100vw; /* Each slide takes full viewport width */
+  height: 100vh; /* Full viewport height */
+  flex-shrink: 0; /* Ensure slides don’t shrink */
+  overflow: hidden;
+}
+
+.slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Category Heading */
+.category-heading {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Item Container */
+.items-container {
+  display: flex;
+  
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+
+}
+
+.item {
+
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+}
+.item img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.item img:hover {
+  transform: scale(1.1);
+}
+.item:hover {
+  transform: translateY(-10px);
+}
+
+/* Image Container (for category overlay) */
+.image-container {
+  position: relative;
+  width: 150px;
+}
+
+
+
+
+
+/* Category Label (Overlay on Image) */
+/* Category Label (Button Style) */
+.category-label {
+  position: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: purple; /* Semi-transparent background */
+  color: #fff;
+  text-align: center;
+  padding: 10px; /* Increase padding for button-like appearance */
+  font-size: 14px;
+  font-weight: bold;
+  border-top-left-radius: 8px; /* Match the image's border radius */
+  border-top-right-radius: 8px;
+  cursor: pointer; /* Indicate that it is clickable */
+  border: 2px solid #fff; /* Optional: Add a border to make it more button-like */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+}
+
+/* Ensure the link covers the image and label */
+.category-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.category-label:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+a {
+  text-decoration: none;
+}
+.image-boxes-section {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  /* Background color of the section */
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.image-container-left {
+  flex: 1; /* Let the image take half of the space */
+  text-align: left;
+}
+
+.image-container-left img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.boxes-container {
+  margin-top: 60px;
+  flex: 1; /* Let the boxes take the remaining space */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows */
+  gap: 20px; /* Space between the boxes */
+  padding-left: 20px;
+}
+
+/* Make each box clickable and styled like a button */
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  text-decoration: none; /* Remove underline for anchor tags */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+}
+
+/* Assign different background colors to each box */
+.box-1 {
+  background-color: #ff6b6b; /* Red */
+}
+
+.box-2 {
+  background-color: #4dabf7; /* Blue */
+}
+
+.box-3 {
+  background-color: #51cf66; /* Green */
+}
+
+.box-4 {
+  background-color: #ffd43b; /* Yellow */
+}
+
+.box-5 {
+  background-color: #845ef7; /* Purple */
+}
+
+.box-6 {
+  background-color: #ff922b; /* Orange */
+}
+
+/* Hover and Active Effects for Boxes */
+.box:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.box:active {
+  transform: scale(0.98); /* Shrink slightly when clicked */
+}
+.purple-section {
+  background-color: purple; /* Set background color to purple */
+  color: white;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center; /* Vertically center the content and image */
+  max-width: 1200px; /* Restrict the maximum width of the content */
+  width: 100%;
+}
+
+.content-container {
+  flex: 1; /* Let the content take the available space */
+  margin-right: 20px;
+}
+
+.image-container {
+  flex: 1; /* Let the image take the remaining space */
+  text-align: right; /* Align image to the right */
+}
+
+.image-container img {
+  width: 100%; /* Make the image responsive */
+  max-width: 400px; /* Restrict the maximum width of the image */
+  height: auto; /* Ensure the image maintains its aspect ratio */
+  border-radius: 10px; /* Optional: add some styling to the image */
+}
+
+.purple-section h2 {
+  margin-top: 90px;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.purple-section p {
+  margin-top: 80px;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.purple-section button {
+  background-color: white;
+  color: purple;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.purple-section button:hover {
+  background-color: purple;
+  color: white;
+  border: 2px solid white;
+}
+/* Social Media and Form Section */
+.social-form-section {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Light background color */
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px; /* Space between the social and form sections */
+}
+
+/* Social Media Section */
+.social-media {
+  flex: 1;
+}
+
+.social-media h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a :hover {
+  transform: scale(1.1);
+}
+
+/* Contact Form Section */
+.contact-form {
+  flex: 1;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4dabf7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #007bff;
+}
+
+/* Login Or Account------------------- */
+
+.account-page {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: linear-gradient(135deg, #7143db99, #b44d8e);
+  border-radius: 20px;
+  width: 350px;
+  height: 420px;
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(147, 100, 100, 0.5);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  box-shadow: 0 0 30px rgba(11, 10, 12, 0.751);
+  transform: scale(1.05);
+}
+
+.form-container span {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #fff;
+  cursor: pointer;
+  width: 100px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.form-container span:hover {
+  color: #ff523b;
+}
+
+.form-btn {
+  display: inline-block;
+}
+
+.form-container form {
+  max-width: 300px;
+  padding: 0 20px;
+  position: absolute;
+  top: 130px;
+  transition: transform 1s;
+}
+
+form input {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+form input:focus {
+  border: 1px solid #ff523b;
+  box-shadow: 0 0 5px rgba(255, 82, 59, 0.7);
+  outline: none;
+}
+
+form .btn {
+  width: 100%;
+  border: none;
+  background: linear-gradient(90deg, #ff523b, #ff2a2a);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form .btn:hover {
+  background: linear-gradient(90deg, #ff2a2a, #ff523b);
+  transform: translateY(-3px);
+}
+
+form a {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+form a:hover {
+  color: #ff523b;
+}
+
+#indicator {
+  width: 100px;
+  border: none;
+  background: #ff523b;
+  height: 3px;
+  margin-top: 9px;
+  transform: translateX(0px);
+  transition: transform 1s;
+}
+
+
+.small-container {
+  max-width: 1080px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.col-2 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+
+.col-2 img {
+  max-width: 100%;
+  padding: 50px 0;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #ff523b;
+  color: #fff;
+  padding: 8px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+
+.btn:hover {
+  background: #563434;
+}
+
+/* Single products details */
+
+.single-product{
+  margin-top: 80px;
+
+}
+
+.single-product .col-2 img{
+padding: 0;
+}
+
+.single-product .col-2 {
+  padding: 20px;
+}
+
+.single-product{
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.single-product select{
+  display: block;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.single-product input{
+  width: 50px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid #ff523b;
+}
+
+input:focus{
+  outline: none;
+}
+
+.single-product .fa{
+  color: #ff523b;
+  margin-left: 10px;
+}
+p {
+  color: #f8f5f5;
+
+}
+
+.small-img-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-img-col{
+  flex-basis: 24%;
+  cursor: pointer;
+}
+
+/* Featured product--------------- */
+.small-container {
+  max-width: 1080px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+
+.col-4 {
+  flex-basis: 25%;
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  transition: tranform 0.5s;
+}
+
+.col-4 img {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto 80px;
+  position: relative;
+  line-height: 60px;
+  color: #555;
+}
+
+.title::after {
+  content: '';
+  background: #ff523b;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h4 {
+  color: #555;
+  font-weight: normal;
+
+}
+
+.col-4 p {
+  font-size: 14px;
+
+}
+
+.rating .fa {
+  color: #ff523b;
+}
+
+.col-4:hover {
+  transform: translateY(-5px);
+}
+
+
+/* cart item------------------------- */
+
+.cart-page{
+  margin: 80px auto;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+th{
+  text-align: left;
+  padding: 5px;
+  color: #fff;
+  background: #ff523b;
+}
+
+td{
+  padding: 10px 5px;
+
+}
+
+td input{
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+
+td a{
+  color: #ff523b;
+  font-size: 12px;
+
+}
+
+td img{
+  width: 80px;
+  height: 80px;
+  margin-right: 10px ;
+}
+
+.total-price{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-price table{
+  border-top: 3px solid #ff523b;
+  width: 100%;
+  max-width: 400px;
+}
+
+td:last-child{
+  text-align: right;
+}
+
+th:last-child{
+  text-align: right;
+}
+
+
+
+/* Footer */
+
+.footer {
+  background-color: #7143db; /* Match navbar for consistency */
+  color: white;
+  padding: 40px 20px; /* Spacing around the footer */
+  text-align: center; /* Center text */
+}
+
+.contact-form {
+  max-width: 600px; /* Limit width of the contact form */
+  margin: auto; /* Center the form */
+  background: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  padding: 30px; /* Padding inside the form */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.contact-form h2 {
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Space between form elements */
+}
+
+.form-group label {
+  display: block; /* Block display for labels */
+  margin-bottom: 5px; /* Space below labels */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%; /* Full width inputs */
+  padding: 10px; /* Padding inside inputs */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  background: rgba(255, 255, 255, 0.2); /* Light background */
+  color: #fff; /* Text color */
+  transition: border 0.3s; /* Transition for focus effect */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border: 1px solid #ff523b; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.submit-btn {
+  width: 100%; /* Full width button */
+  padding: 12px; /* Padding inside button */
+  border: none; /* No border */
+  background: linear-gradient(90deg, #ff523b, #ff2a2a); /* Gradient background */
+  color: white; /* Text color */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background 0.3s, transform 0.3s; /* Transitions for hover effect */
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #ff2a2a, #ff523b); /* Change gradient on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+
+/* //Product gender */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.gender-selection {
+  margin-bottom: 30px;
+}
+
+.gender-btn {
+  background-color: #7143db; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+.gender-btn:hover {
+  background-color: #ff523b; /* Hover color */
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 200px; /* Fixed width for product items */
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.product-item:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.product-item h3 {
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  font-weight: bold;
+}
