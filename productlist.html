@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store - Product Listing</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #ffd43b;
+
+
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul {
+            display: inline-block;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0e0a0a;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: rgba(146, 102, 102, 0.2);
+            border-radius: 5px;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar" style="background-color: #ffd43b;">
+        <div class="logo">
+            <a href="index.html"><img src="/image/logo.png" width="125px"
+                    style="border-radius: 20px; background: transparent;"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product-details.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+        <a href="cart.html"><img src="/image/cart.png" width="30px" height="30px"></a>
+    </div>
+
+    <!-- Filters and Products Section -->
+    <div class="main-container">
+        <!-- Filters Section -->
+        <div class="filters">
+            <h3>Filters</h3>
+
+            <!-- Gender Filter -->
+            <div class="filter-section">
+                <label for="gender">Gender</label>
+                <select id="gender" onchange="updateClothingTypes()">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <!-- Clothing Type Filter (Dynamically changes based on Gender) -->
+            <div class="filter-section">
+                <label for="clothing-type">Clothing Type</label>
+                <select id="clothing-type">
+                    <option value="">Select Type</option>
+                </select>
+            </div>
+
+            <!-- Price Filter -->
+            <div class="filter-section">
+                <label for="price-range">Price</label>
+                <input type="range" min="0" max="10000" value="5000" class="price-range">
+                <div class="price-input">
+                    <input type="number" min="0" placeholder="Min"> to
+                    <input type="number" placeholder="Max">
+                </div>
+            </div>
+
+            <!-- Size Filter -->
+            <div class="filter-section">
+                <label>Size</label>
+                <select>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Product Listing Section -->
+        <div class="product-list">
+            <div class="sort-by">
+                <span>Sort by:</span>
+                <button>Popularity</button>
+                <button>Price -- Low to High</button>
+                <button>Price -- High to Low</button>
+                <button>Newest First</button>
+            </div>
+
+            <div class="product-grid">
+                <!-- Example Product Cards (Will be fetched dynamically) -->
+                <div class="product-card">
+                    <img src="/image/product-4.jpg" alt="Product">
+                    <h4>Product Name</h4>
+                    <p>Price: ₹3499</p>
+                    <span class="discount">50% off</span>
+                    <button class="try-on-button">Try On</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product-4.jpg" alt="Product">
+                    <h4>Product Name</h4>
+                    <p>Price: ₹3499</p>
+                    <span class="discount">50% off</span>
+                    <button class="try-on-button">Try On</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product-4.jpg" alt="Product">
+                    <h4>Product Name</h4>
+                    <p>Price: ₹3499</p>
+                    <span class="discount">50% off</span>
+                    <button class="try-on-button">Try On</button>
+                </div>
+                <!-- Repeat for more product cards -->
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Update clothing types based on selected gender
+        function updateClothingTypes() {
+            const gender = document.getElementById('gender').value;
+            const clothingTypeSelect = document.getElementById('clothing-type');
+            clothingTypeSelect.innerHTML = ''; // Clear the current options
+
+            // Define clothing options based on gender
+            const maleClothing = ['Sherwani', 'Coat', 'Pant', 'Jeans', 'T-shirt', 'Trouser', 'Indo-Western'];
+            const femaleClothing = ['Lehenga', 'Gown', 'Saree', 'Suit', 'Salwar', 'Kurti'];
+
+            let options = [];
+
+            if (gender === 'male') {
+                options = maleClothing;
+            } else if (gender === 'female') {
+                options = femaleClothing;
+            }
+
+            // Add default option
+            let defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.text = 'Select Type';
+            clothingTypeSelect.appendChild(defaultOption);
+
+            // Append clothing options based on the gender
+            options.forEach(type => {
+                let option = document.createElement('option');
+                option.value = type.toLowerCase();
+                option.text = type;
+                clothingTypeSelect.appendChild(option);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

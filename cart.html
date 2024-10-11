@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="/image/logo.png" width="125px"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="product-details.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+        <img src="/image/cart.png" width="30px" height="30px">
+    </div>
+
+
+    <!-- Cart item details -->
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="/image/buy-1.jpg" alt="">
+                        <div>
+                            <p>Printed Tshirt</p>
+                            <small>Price: $450.00</small>
+                            <br>
+                            <a href=""></a>Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="/image/buy-2.jpg" alt="">
+                        <div>
+                            <p>Printed Tshirt</p>
+                            <small>Price: $450.00</small>
+                            <br>
+                            <a href=""></a>Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$100.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="/image/buy-3.jpg" alt="">
+                        <div>
+                            <p>Printed Tshirt</p>
+                            <small>Price: $450.00</small>
+                            <br>
+                            <a href=""></a>Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$50.00</td>
+            </tr>
+            
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$200.00</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>$30.00</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$230.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<!-- cONTAXT -->
+    <footer class="footer" id="footer">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer-info">
+            <h3>About Us</h3>
+            <p>We are committed to providing the best service possible. Your feedback helps us improve.</p>
+            <p>Explore our services and discover how we can help you achieve your goals.</p>
+            <p>Follow us for updates and more information on our offerings.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
